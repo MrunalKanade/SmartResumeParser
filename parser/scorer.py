@@ -2,13 +2,16 @@ def calculate_score(data):
 
     score = 0
 
+    if data["name"] != "Not Found":
+        score += 10
+
     if data["email"] != "Not Found":
-        score += 20
+        score += 15
 
     if data["phone"] != "Not Found":
-        score += 20
+        score += 15
 
-    if len(data["skills"]) > 3:
+    if len(data["skills"]) >= 5:
         score += 30
 
     if len(data["education"]) > 0:
