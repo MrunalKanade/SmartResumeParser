@@ -29,7 +29,7 @@ st.title("📄 Smart Resume Parser")
 
 st.write("Upload one or more resumes and analyze them.")
 
-# Required Skills Input
+# Required Skills
 required_skills_input = st.text_input(
     "Enter Required Skills (comma separated)",
     placeholder="Python, SQL, Machine Learning"
@@ -41,7 +41,7 @@ required_skills = [
     if skill.strip()
 ]
 
-# Multiple Upload
+# Upload files
 uploaded_files = st.file_uploader(
     "Upload Resume(s)",
     type=["pdf", "docx"],
@@ -54,7 +54,7 @@ if uploaded_files:
 
     for uploaded_file in uploaded_files:
 
-        # Extract Text
+        # Extract text
         if uploaded_file.name.endswith(".pdf"):
             text = extract_text_from_pdf(uploaded_file)
 
@@ -64,7 +64,7 @@ if uploaded_files:
         else:
             continue
 
-        # Extract Information
+        # Extract information
         data = {
             "name": extract_name(text),
             "email": extract_email(text),
@@ -76,7 +76,7 @@ if uploaded_files:
             "experience": extract_experience(text)
         }
 
-        # Resume Score
+        # Score
         score = calculate_score(data)
 
         data["resume_score"] = score
@@ -91,7 +91,8 @@ if uploaded_files:
         if len(required_skills) > 0:
 
             match_percentage = round(
-                (len(matched_skills) / len(required_skills)) * 100,
+                len(matched_skills) /
+                len(required_skills) * 100,
                 2
             )
 
@@ -104,7 +105,7 @@ if uploaded_files:
 
         all_data.append(data)
 
-        # Display Individual Resume
+        # Individual Resume Display
         st.divider()
 
         st.subheader(uploaded_file.name)
@@ -182,4 +183,35 @@ if len(all_data) > 0:
                 "match_percentage"
             ]
         ]
+    )
+
+    # Save Output Files
+    df.to_csv(
+        "outputs/resume_data.csv",
+        index=False
+    )
+
+    df.to_json(
+        "outputs/resume_data.json",
+        orient="records",
+        indent=4
+    )
+
+    # Download CSV
+    st.download_button(
+        label="⬇ Download CSV",
+        data=df.to_csv(index=False),
+        file_name="resume_data.csv",
+        mime="text/csv"
+    )
+
+    # Download JSON
+    st.download_button(
+        label="⬇ Download JSON",
+        data=df.to_json(
+            orient="records",
+            indent=4
+        ),
+        file_name="resume_data.json",
+        mime="application/json"
     )
