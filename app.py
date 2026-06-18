@@ -18,7 +18,7 @@ from parser.extractor import (
 from parser.scorer import calculate_score
 
 
-# Page Configuration
+# Page Config
 st.set_page_config(
     page_title="Smart Resume Parser",
     page_icon="📄",
@@ -26,7 +26,20 @@ st.set_page_config(
 )
 
 st.title("📄 Smart Resume Parser")
-st.write("Upload one or multiple resumes and extract information.")
+
+st.write("Upload one or more resumes and analyze them.")
+
+# Required Skills Input
+required_skills_input = st.text_input(
+    "Enter Required Skills (comma separated)",
+    placeholder="Python, SQL, Machine Learning"
+)
+
+required_skills = [
+    skill.strip()
+    for skill in required_skills_input.split(",")
+    if skill.strip()
+]
 
 # Multiple Upload
 uploaded_files = st.file_uploader(
@@ -41,11 +54,10 @@ if uploaded_files:
 
     for uploaded_file in uploaded_files:
 
-        # PDF
+        # Extract Text
         if uploaded_file.name.endswith(".pdf"):
             text = extract_text_from_pdf(uploaded_file)
 
-        # DOCX
         elif uploaded_file.name.endswith(".docx"):
             text = extract_text_from_docx(uploaded_file)
 
@@ -54,29 +66,41 @@ if uploaded_files:
 
         # Extract Information
         data = {
-
             "name": extract_name(text),
-
             "email": extract_email(text),
-
             "phone": extract_phone(text),
-
             "linkedin": extract_linkedin(text),
-
             "github": extract_github(text),
-
             "skills": extract_skills(text),
-
             "education": extract_education(text),
-
             "experience": extract_experience(text)
-
         }
 
         # Resume Score
         score = calculate_score(data)
 
         data["resume_score"] = score
+
+        # Skill Matching
+        matched_skills = list(
+            set(required_skills).intersection(
+                set(data["skills"])
+            )
+        )
+
+        if len(required_skills) > 0:
+
+            match_percentage = round(
+                (len(matched_skills) / len(required_skills)) * 100,
+                2
+            )
+
+        else:
+
+            match_percentage = 0
+
+        data["matched_skills"] = matched_skills
+        data["match_percentage"] = match_percentage
 
         all_data.append(data)
 
@@ -85,33 +109,47 @@ if uploaded_files:
 
         st.subheader(uploaded_file.name)
 
-        st.write("### Name")
-        st.write(data["name"])
+        col1, col2 = st.columns(2)
 
-        st.write("### Email")
-        st.write(data["email"])
+        with col1:
 
-        st.write("### Phone")
-        st.write(data["phone"])
+            st.write("### Name")
+            st.write(data["name"])
 
-        st.write("### LinkedIn")
-        st.write(data["linkedin"])
+            st.write("### Email")
+            st.write(data["email"])
 
-        st.write("### GitHub")
-        st.write(data["github"])
+            st.write("### Phone")
+            st.write(data["phone"])
 
-        st.write("### Skills")
-        st.write(data["skills"])
+            st.write("### LinkedIn")
+            st.write(data["linkedin"])
 
-        st.write("### Education")
-        st.write(data["education"])
+            st.write("### GitHub")
+            st.write(data["github"])
 
-        st.write("### Experience")
-        st.write(data["experience"])
+        with col2:
+
+            st.write("### Skills")
+            st.write(data["skills"])
+
+            st.write("### Education")
+            st.write(data["education"])
+
+            st.write("### Experience")
+            st.write(f"{data['experience']} years")
+
+            st.write("### Matched Skills")
+            st.write(matched_skills)
 
         st.metric(
             "Resume Score",
             f"{score}/100"
+        )
+
+        st.metric(
+            "Skill Match %",
+            f"{match_percentage}%"
         )
 
 # Summary Table
@@ -124,3 +162,24 @@ if len(all_data) > 0:
     df = pd.DataFrame(all_data)
 
     st.dataframe(df)
+
+    # Candidate Ranking
+    st.divider()
+
+    st.subheader("🏆 Candidate Ranking")
+
+    ranked_df = df.sort_values(
+        by=["match_percentage", "resume_score"],
+        ascending=False
+    )
+
+    st.dataframe(
+        ranked_df[
+            [
+                "name",
+                "email",
+                "resume_score",
+                "match_percentage"
+            ]
+        ]
+    )
