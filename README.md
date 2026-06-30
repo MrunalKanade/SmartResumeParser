@@ -139,7 +139,6 @@ smart\_resume\_parser/
 ```
 
 
-
 \---
 
 
@@ -257,18 +256,6 @@ Exports:
 \- CSV file
 
 \- JSON file
-
-
-
-\---
-
-
-
-\## 📷 Screenshots
-
-
-
-(Add screenshots after running the application)
 
 
 
