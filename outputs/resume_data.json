@@ -1,160 +1,132 @@
 [
     {
-        "name":"Rahul Sharma",
-        "email":"rahul.sharma@gmail.com",
-        "phone":"+91 ",
-        "linkedin":"linkedin.com\/in\/rahulsharma",
-        "github":"github.com\/rahulsharma",
+        "name":"Aditya Verma\nPune",
+        "email":"aditya@gmail.com",
+        "phone":"Not Found",
+        "linkedin":"linkedin.com\/in\/adityaverma",
+        "github":"Not Found",
         "skills":[
-            "TensorFlow",
-            "Pandas",
-            "C",
+            "Excel",
             "Git",
+            "C",
             "SQL",
-            "Streamlit",
-            "Machine Learning",
-            "NumPy",
-            "PyTorch",
-            "NLP",
-            "Docker",
+            "Power BI",
             "R",
-            "GitHub",
             "Python"
         ],
         "education":[
             "B.Tech"
         ],
         "experience":"0",
-        "resume_score":85,
+        "resume_score":70,
         "matched_skills":[
-            "SQL",
             "Python",
-            "Machine Learning"
+            "SQL"
         ],
         "match_percentage":100.0
     },
     {
-        "name":"Priya Patel",
-        "email":"priya.patel@gmail.com",
-        "phone":"+91 ",
-        "linkedin":"linkedin.com\/in\/priyapatel",
-        "github":"github.com\/priyapatel",
+        "name":"Not Found",
+        "email":"sneha@gmail.com",
+        "phone":"Not Found",
+        "linkedin":"linkedin.com\/in\/snehakulkarni",
+        "github":"Not Found",
         "skills":[
-            "C",
+            "Excel",
             "Git",
-            "AWS",
+            "C",
             "SQL",
-            "FastAPI",
-            "Python",
-            "PostgreSQL",
-            "Docker",
+            "Power BI",
             "R",
-            "GitHub",
-            "Flask"
-        ],
-        "education":[
-            "MBA",
-            "MCA"
-        ],
-        "experience":"0",
-        "resume_score":85,
-        "matched_skills":[
-            "SQL",
             "Python"
         ],
-        "match_percentage":66.67
+        "education":[
+            "B.Tech"
+        ],
+        "experience":"0",
+        "resume_score":60,
+        "matched_skills":[
+            "Python",
+            "SQL"
+        ],
+        "match_percentage":100.0
+    },
+    {
+        "name":"Rohan Mehta\n",
+        "email":"rohan@gmail.com",
+        "phone":"Not Found",
+        "linkedin":"linkedin.com\/in\/rohanmehta",
+        "github":"Not Found",
+        "skills":[
+            "Excel",
+            "Git",
+            "C",
+            "SQL",
+            "Power BI",
+            "R",
+            "Python"
+        ],
+        "education":[
+            "B.Tech"
+        ],
+        "experience":"0",
+        "resume_score":70,
+        "matched_skills":[
+            "Python",
+            "SQL"
+        ],
+        "match_percentage":100.0
+    },
+    {
+        "name":"Priya Nair\nPune",
+        "email":"priya@gmail.com",
+        "phone":"Not Found",
+        "linkedin":"linkedin.com\/in\/priyanair",
+        "github":"Not Found",
+        "skills":[
+            "Excel",
+            "Git",
+            "C",
+            "SQL",
+            "Power BI",
+            "R",
+            "Python"
+        ],
+        "education":[
+            "B.Tech"
+        ],
+        "experience":"0",
+        "resume_score":70,
+        "matched_skills":[
+            "Python",
+            "SQL"
+        ],
+        "match_percentage":100.0
     },
     {
         "name":"Not Found",
-        "email":"amit.verma@gmail.com",
-        "phone":"+91 ",
-        "linkedin":"linkedin.com\/in\/amitverma",
-        "github":"github.com\/amitverma",
+        "email":"aarav@gmail.com",
+        "phone":"Not Found",
+        "linkedin":"linkedin.com\/in\/aaravsharma",
+        "github":"Not Found",
         "skills":[
-            "Tableau",
-            "Pandas",
-            "C",
-            "Git",
-            "SQL",
             "Excel",
-            "R",
-            "GitHub",
-            "Python",
-            "Power BI"
-        ],
-        "education":[
-            "B.E"
-        ],
-        "experience":"0",
-        "resume_score":75,
-        "matched_skills":[
-            "SQL",
-            "Python"
-        ],
-        "match_percentage":66.67
-    },
-    {
-        "name":"Deep Learning",
-        "email":"sneha.kulkarni@gmail.com",
-        "phone":"+91 ",
-        "linkedin":"linkedin.com\/in\/snehakulkarni",
-        "github":"github.com\/snehakulkarni",
-        "skills":[
-            "TensorFlow",
-            "Deep Learning",
-            "C",
             "Git",
-            "OpenCV",
-            "AWS",
-            "Machine Learning",
-            "PyTorch",
-            "NLP",
-            "Computer Vision",
+            "C",
+            "SQL",
+            "Power BI",
             "R",
-            "GitHub",
             "Python"
         ],
         "education":[
-            "M.Tech"
+            "B.Tech"
         ],
         "experience":"0",
-        "resume_score":85,
+        "resume_score":60,
         "matched_skills":[
             "Python",
-            "Machine Learning"
+            "SQL"
         ],
-        "match_percentage":66.67
-    },
-    {
-        "name":"Karan Singh",
-        "email":"karan.singh@gmail.com",
-        "phone":"+91 ",
-        "linkedin":"linkedin.com\/in\/karansingh",
-        "github":"github.com\/karansingh",
-        "skills":[
-            "Django",
-            "MySQL",
-            "C",
-            "Git",
-            "AWS",
-            "SQL",
-            "Java",
-            "JavaScript",
-            "React",
-            "Docker",
-            "R",
-            "GitHub",
-            "Python"
-        ],
-        "education":[
-            "B.E"
-        ],
-        "experience":"0",
-        "resume_score":85,
-        "matched_skills":[
-            "SQL",
-            "Python"
-        ],
-        "match_percentage":66.67
+        "match_percentage":100.0
     }
 ]
